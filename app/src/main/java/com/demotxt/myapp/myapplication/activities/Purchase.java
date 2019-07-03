@@ -27,11 +27,10 @@ public class Purchase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase);
 
-        Fill=(Button)findViewById(R.id.btnfill);
-
-        Fill.setOnClickListener(new View.OnClickListener() {
+        Fill=findViewById(R.id.btnfill);
+      Fill.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(Purchase.this, CardPay.class);
                 startActivity(intent);
             }
@@ -39,7 +38,10 @@ public class Purchase extends AppCompatActivity {
 
 
 
-        radioGroup = findViewById(R.id.radioGroup);
+
+
+
+    radioGroup = findViewById(R.id.radioGroup);
         textView = findViewById(R.id.text_view_selected);
         Button buttonApply = findViewById(R.id.btnApply);
 
@@ -48,7 +50,7 @@ public class Purchase extends AppCompatActivity {
             public void onClick(View view) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
 
-                radioButton = findViewById(radioId);
+                radioButton = findViewById(R.id.radioCash);
 
                 textView.setText("your choice :"+radioButton.getText());
             }
