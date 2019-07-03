@@ -4,17 +4,17 @@ package com.demotxt.myapp.myapplication.model;
  * Created by Aws on 11/03/2018.
  */
 
-public class Anime {
+public class PizzaDetails {
 
     private Integer pizzaId;
     private String name;
     private String description;
     private Integer price;
     private String imageUrl;
-    public Anime() {
+    public PizzaDetails() {
     }
 
-    public Anime(Integer pizzaId, String name, String description, Integer price, String imageUrl) {
+    public PizzaDetails(Integer pizzaId, String name, String description, Integer price, String imageUrl) {
         this.pizzaId = pizzaId;
         this.name = name;
         this.description = description;

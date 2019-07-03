@@ -9,12 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.demotxt.myapp.myapplication.activities.AnimeActivity;
-import com.demotxt.myapp.myapplication.model.Anime;
+import com.demotxt.myapp.myapplication.activities.PizzaDescriptions;
+import com.demotxt.myapp.myapplication.model.PizzaDetails;
 import com.demotxt.myapp.myapplication.R ;
 
 import java.util.List;
@@ -24,11 +23,11 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
 
     private Context mContext ;
-    private List<Anime> mData ;
+    private List<PizzaDetails> mData ;
     RequestOptions option;
 
 
-    public RecyclerViewAdapter(Context mContext, List<Anime> mData) {
+    public RecyclerViewAdapter(Context mContext, List<PizzaDetails> mData) {
         this.mContext = mContext;
         this.mData = mData;
 
@@ -48,12 +47,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(mContext, AnimeActivity.class);
-                i.putExtra("anime_name",mData.get(viewHolder.getAdapterPosition()).getName());
-                i.putExtra("anime_description",mData.get(viewHolder.getAdapterPosition()).getDescription());
-                i.putExtra("anime_pizzaId",mData.get(viewHolder.getAdapterPosition()).getPizzaId());
-                i.putExtra("anime_price",mData.get(viewHolder.getAdapterPosition()).getPrice());
-                i.putExtra("anime_img",mData.get(viewHolder.getAdapterPosition()).getImageUrl());
+                Intent i = new Intent(mContext, PizzaDescriptions.class);
+                i.putExtra("pizza_name",mData.get(viewHolder.getAdapterPosition()).getName());
+                i.putExtra("pizza_description",mData.get(viewHolder.getAdapterPosition()).getDescription());
+                i.putExtra("pizza_pizzaId",mData.get(viewHolder.getAdapterPosition()).getPizzaId());
+                i.putExtra("pizza_price",mData.get(viewHolder.getAdapterPosition()).getPrice());
+                i.putExtra("pizza_img",mData.get(viewHolder.getAdapterPosition()).getImageUrl());
 
                 mContext.startActivity(i);
 
@@ -104,9 +103,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
 
             view_container = itemView.findViewById(R.id.container);
-            tv_name = itemView.findViewById(R.id.anime_name);
-            tv_pizzaId = itemView.findViewById(R.id.categorie);
-            tv_price = itemView.findViewById(R.id.rating);
+            tv_name = itemView.findViewById(R.id.name);
+            tv_pizzaId = itemView.findViewById(R.id.id);
+            tv_price = itemView.findViewById(R.id.price);
 
             img_thumbnail = itemView.findViewById(R.id.thumbnail);
 

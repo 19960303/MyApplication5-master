@@ -27,8 +27,8 @@
             android:textColor="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/anime_name"
-            android:text="Anime Title"
+            android:id="@+id/name"
+            android:text="Pizza_Name"
             android:textStyle="bold"
             android:textSize="18sp"/>
 
@@ -37,15 +37,15 @@
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Category"
-            android:id="@+id/categorie"/>
+            android:text="Pizza Id"
+            android:id="@+id/id"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rating"
-            android:text="0.0"
+            android:id="@+id/price"
+            android:text="Pizza Price"
             android:layout_marginTop="10dp"
             android:background="@drawable/rating_background"
             android:textColor="#fff"

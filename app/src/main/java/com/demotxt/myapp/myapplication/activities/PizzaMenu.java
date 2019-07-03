@@ -12,7 +12,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.demotxt.myapp.myapplication.R;
 import com.demotxt.myapp.myapplication.adapters.RecyclerViewAdapter;
-import com.demotxt.myapp.myapplication.model.Anime;
+import com.demotxt.myapp.myapplication.model.PizzaDetails;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +26,7 @@ public class PizzaMenu extends AppCompatActivity {
     private final String JSON_URL = "http://172.16.53.50:8080/demo/all" ;
     private JsonArrayRequest request ;
     private RequestQueue requestQueue ;
-    private List<Anime> lstAnime ;
+    private List<PizzaDetails> lstPizzaDetails;
     private RecyclerView recyclerView ;
 
     @Override
@@ -34,7 +34,7 @@ public class PizzaMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pizza_menu);
 
-        lstAnime = new ArrayList<>() ;
+        lstPizzaDetails = new ArrayList<>() ;
         recyclerView = findViewById(R.id.recyclerviewid);
         jsonrequest();
 
@@ -52,13 +52,13 @@ public class PizzaMenu extends AppCompatActivity {
 
                     try {
                         jsonObject = response.getJSONObject(i) ;
-                        Anime anime = new Anime() ;
-                        anime.setName(jsonObject.getString("name"));
-                        anime.setDescription(jsonObject.getString("description"));
-                        anime.setPizzaId(jsonObject.getInt("pizzaId"));
-                        anime.setPrice(jsonObject.getInt("price"));
-                        anime.setImageUrl(jsonObject.getString("imageUrl"));
-                        lstAnime.add(anime);
+                        PizzaDetails pizzaDetails = new PizzaDetails() ;
+                        pizzaDetails.setName(jsonObject.getString("name"));
+                        pizzaDetails.setDescription(jsonObject.getString("description"));
+                        pizzaDetails.setPizzaId(jsonObject.getInt("pizzaId"));
+                        pizzaDetails.setPrice(jsonObject.getInt("price"));
+                        pizzaDetails.setImageUrl(jsonObject.getString("imageUrl"));
+                        lstPizzaDetails.add(pizzaDetails);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -67,7 +67,7 @@ public class PizzaMenu extends AppCompatActivity {
 
                 }
 
-                setuprecyclerview(lstAnime);
+                setuprecyclerview(lstPizzaDetails);
 
             }
         }, new Response.ErrorListener() {
@@ -84,10 +84,10 @@ public class PizzaMenu extends AppCompatActivity {
 
     }
 
-    private void setuprecyclerview(List<Anime> lstAnime) {
+    private void setuprecyclerview(List<PizzaDetails> lstPizzaDetails) {
 
 
-        RecyclerViewAdapter myadapter = new RecyclerViewAdapter(this,lstAnime) ;
+        RecyclerViewAdapter myadapter = new RecyclerViewAdapter(this, lstPizzaDetails) ;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myadapter);
 
